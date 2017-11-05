@@ -32,12 +32,16 @@ public class ConsistentHash<S extends ServerNode> {
         return hashRing.size();
     }
 
+    public int getNumVirtualNodes(){
+        return numVirtualNodes;
+    }
+
     public S getServer(String key) {
         if (hashRing == null) return null;
         int hashValue = hashFunction.getHashValue(key);
         if (!hashRing.containsKey(hashValue)) {
             SortedMap<Integer, S> tailRing = hashRing.tailMap(hashValue);
-            hashValue = tailRing == null ? hashRing.firstKey() : tailRing.firstKey();
+            hashValue = tailRing.isEmpty() ? hashRing.firstKey() : tailRing.firstKey();
         }
         return hashRing.get(hashValue);
     }
