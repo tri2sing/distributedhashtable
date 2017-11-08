@@ -1,13 +1,15 @@
 package consistenthashing;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.NavigableMap;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
 public class ConsistentHash<S extends ServerNode> {
     private final HashFunction hashFunction;
     private final int numVirtualNodes;
-    private final SortedMap<Integer, S> hashRing;
+    private final NavigableMap<Integer, S> hashRing;
 
     public ConsistentHash(HashFunction hashFunction, int numVirtualNodes, Collection<S> servers) {
         this.hashFunction = hashFunction;
@@ -44,5 +46,12 @@ public class ConsistentHash<S extends ServerNode> {
             hashValue = tailRing.isEmpty() ? hashRing.firstKey() : tailRing.firstKey();
         }
         return hashRing.get(hashValue);
+    }
+
+    public List<S> getServer(String key, int numReplicas) {
+        if (hashRing == null) return null;
+        int hashValue = hashFunction.getHashValue(key);
+        return null;
+
     }
 }
