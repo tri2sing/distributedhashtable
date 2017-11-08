@@ -1,4 +1,4 @@
-package src.main.java.consistenthashing;
+package consistenthashing;
 
 import java.util.Collection;
 import java.util.List;

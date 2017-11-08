@@ -1,4 +1,4 @@
-package src.main.java.consistenthashing;
+package consistenthashing;
 
 public interface HashFunction<K> {
     public int getHashValue(K key);
