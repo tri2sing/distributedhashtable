@@ -51,6 +51,7 @@ fabric.properties
 /bin/
 bin/*
 target/*
+*/target/*
 
 
 # Mobile Tools for Java (J2ME)
