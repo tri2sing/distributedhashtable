@@ -1,4 +1,4 @@
-package consistenthashing;
+package src.main.java.consistenthashing;
 
 public class SimpleServerNode implements ServerNode {
 

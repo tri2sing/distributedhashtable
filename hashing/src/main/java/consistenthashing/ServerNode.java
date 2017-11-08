@@ -1,4 +1,4 @@
-package consistenthashing;
+package src.main.java.consistenthashing;
 
 public interface ServerNode {
    public String getKey();
